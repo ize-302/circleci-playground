@@ -1,4 +1,5 @@
-const sumArrayNumbers = require('./sum');
+const sumArrayNumbers = require('../sum');
+const { expect } = require('expect');
 
 describe('Summation test', () => {
   it('should sum all numbers in a given array', () => {

@@ -1,7 +1,15 @@
-const request = require('supertest');
+const sumArrayNumbers = require('../sum');
 const { expect } = require('expect');
+const request = require('supertest');
 
 const app = require('../app');
+
+describe('Summation test', () => {
+  it('should sum all numbers in a given array', () => {
+    const result = sumArrayNumbers([1, 2, 3])
+    expect(result).toBe(6)
+  });
+})
 
 describe('Get response from router', () => {
   it('should return status code 200 and success message in json', async () => {

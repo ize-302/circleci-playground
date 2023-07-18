@@ -11,10 +11,10 @@ jobs:
     steps:
       - checkout
       - node/install-packages:
-          pkg-manager: pnpm
+          pkg-manager: npm
       - run:
           name: Run tests
-          command: pnpm test
+          command: npm test
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows

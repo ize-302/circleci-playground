@@ -2,23 +2,25 @@
 # See: https://circleci.com/docs/configuration-reference
 version: 2.1
 
+orbs:
+  node: circleci/node@5.1.0
+
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/configuration-reference/#jobs
 jobs:
-  build-and-test:
-    docker:
-      - image: cimg/node:16.10
+  build_and_test:
+    executor: node/default
     steps:
       - checkout
       - node/install-packages:
-          pkg-manager: npm
+          pkg-manager: pnpm
       - run:
           name: Run tests
-          command: npm test
+          command: pnpm test
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
 workflows:
-  build-and-test-workflow:
+  build_and_test-workflow:
     jobs:
-      - build-and-test
+      - build_and_test
